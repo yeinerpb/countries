@@ -1,70 +1,63 @@
-
-<div *ngIf="!pais; else divPais"
-     class="alert alert-info">
-    Espere por Favor..
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+  Espere por Favor..
 </div>
 
 <ng-template #divPais>
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        <small> {{ pais.name }}</small>
+      </h1>
+    </div>
+  </div>
 
-    <div class="row">
-        <div class="col-12">
-            <h1><small> {{ pais.name }}</small></h1>
-        </div>
+  <div class="row">
+    <div class="col-4">
+      <h3></h3>
+      <img [src]="pais.flag" class="img-thumbnail" />
     </div>
 
-    <div class="row">
+    <div class="col">
+      <h3>Información</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Capital: </strong> {{ pais.capital }}
+        </li>
 
-        <div class="col-4">
-            <h3></h3>
-            <img [src]="pais.flag" class="img-thumbnail">
-        </div>
+        <li class="list-group-item">
+          <strong>Población: </strong> {{ pais.population | number }}
+        </li>
 
-        <div class="col">
-            <h3>Información</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <strong>Capital: </strong> {{ pais.capital }}
-                </li>
+        <li class="list-group-item">
+          <strong>Código de Llamada: </strong> +{{ pais.callingCodes }}
+        </li>
 
-                <li class="list-group-item">
-                    <strong>Población: </strong> {{ pais.population | number }}
-                </li>
+        <li class="list-group-item">
+          <strong>Moneda: </strong> {{ pais.currencies[0].name }}
+          <strong>{{ pais.currencies[0].symbol }}</strong>
+        </li>
 
-                <li class="list-group-item">
-                    <strong>Código de Llamada: </strong> +{{ pais.callingCodes }}
-                </li>
-
-                <li class="list-group-item">
-                    <strong>Moneda: </strong> {{ pais.currencies[0].name }} <strong>{{ pais.currencies[0].symbol }}</strong>
-                </li>
-
-                <li class="list-group-item">
-                    <strong>Zona Horaria: </strong>  <strong>{{ pais.timezones }}</strong>
-                </li>
-            </ul>
-        </div>
+        <li class="list-group-item">
+          <strong>Zona Horaria: </strong> <strong>{{ pais.timezones }}</strong>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <h3>Traducciones</h3>
-    <div class="row">
-        <div class="col">
-            <span class="badge bg-primary mr-1">{{pais.translations['br']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['de']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['es']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['fa']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['fr']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['hr']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['hu']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['it']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['ja']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['nl']}}</span>
-            <span class="badge bg-primary mr-1">{{pais.translations['pt']}}</span>
-        </div>
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary mr-1">{{ pais.translations["br"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["de"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["es"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["fa"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["fr"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["hr"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["hu"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["it"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["ja"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["nl"] }}</span>
+      <span class="badge bg-primary mr-1">{{ pais.translations["pt"] }}</span>
     </div>
-
-    <!-- <pre class="mt-5">
-        {{pais | json}}
-    </pre> -->
-
-
+  </div>
 </ng-template>
